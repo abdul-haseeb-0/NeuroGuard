@@ -3,6 +3,7 @@ import streamlit as st
 from datasets import load_dataset
 from transformers import pipeline, AutoTokenizer, AutoModelForSequenceClassification
 from groq import Groq
+import time
 
 # Load datasets from Hugging Face
 epilepsy_guidelines_ds = load_dataset("cryptoni/epilepsy_guidelines_QA_v4")
@@ -92,14 +93,55 @@ def generate_response(user_query):
     return final_response
 
 # Streamlit Interface
-st.title("Epilepsy & Seizure Prediction Chatbot")
-st.write("Ask questions related to epilepsy and seizures. The chatbot uses PubMedBERT for medical accuracy and LLaMA 2/Mistral for conversational responses (via Groq).")
 
-user_query = st.text_area("Enter your query here:", placeholder="I'm experiencing sudden muscle jerks and confusion. What could this mean?")
+st.set_page_config(page_title="NeuroGuard", page_icon="🧠", layout="centered")
 
-if st.button("Get Response"):
+st.markdown(
+    """
+    <style>
+        .main {text-align: center;}
+        .stTextArea textarea {border-radius: 10px; padding: 10px; font-size: 16px;}
+        .stButton button {border-radius: 8px; padding: 10px 20px; font-size: 16px; background-color: #6A0DAD; color: white;}
+        .stButton button:hover {background-color: #4B0082;}
+        .divider {margin-top: 20px; margin-bottom: 20px;}
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.markdown("""
+    # 🧠 Epilepsy & Seizure Prediction Chatbot
+    **Ask questions related to epilepsy and seizures.**
+    
+    💡 *Powered by PubMedBERT for medical accuracy and LLaMA 2/Mistral for conversational responses (via Groq).*  
+""")
+
+# User Input
+user_query = st.text_area(
+    "### Enter your query:", 
+    placeholder="I'm experiencing sudden muscle jerks and confusion. What could this mean?",
+    height=120
+)
+
+# Response Button
+if st.button("💬 Get Response"):
     if user_query:
-        response = generate_response(user_query)
-        st.text_area("Chatbot Response:", value=response, height=300)
+        with st.spinner("Analyzing your query..."):
+            time.sleep(1.5)  # Simulating processing delay
+            response = generate_response(user_query)
+        
+        st.success("Here's what the chatbot says:")
+        st.text_area("Chatbot Response:", value=response, height=300, disabled=True)
     else:
-        st.warning("Please enter a query.")
+        st.warning("⚠️ Please enter a query before submitting.")
+
+# Additional Buttons
+st.markdown("<hr class='divider'>", unsafe_allow_html=True)
+col1, col2 = st.columns([1,1])
+with col1:
+    if st.button("❓ Help"):
+        st.info("This chatbot provides guidance on epilepsy-related concerns. Simply enter your query and click 'Get Response' to receive insights.")
+
+with col2:
+    if st.button("📹 Watch Video"):
+        st.video("https://www.youtube.com") #dummy for example
