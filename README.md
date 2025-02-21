@@ -60,10 +60,6 @@ If the input matches seizure symptoms, the chatbot provides:
 
 ---
 
-**Hugging Face Link :** ```https://huggingface.co/spaces/Haseeb-001/NeuroGuard/tree/main``` 
-
----
-
 ## 💡 **How to Use**  
 1. Clone this repository ``git clone https://github.com/Abdul-Haseeb-AI/NeuroGuard.git``
 2. Install required dependencies  
