@@ -1,6 +1,0 @@
-streamlit
-datasets
-transformers
-groq
-faiss-cpu
-torch  # Add PyTorch dependency

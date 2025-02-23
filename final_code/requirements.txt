@@ -1,6 +1,0 @@
-transformers
-streamlit
-numpy
-torch
-groq
-faiss-cpu

@@ -1,76 +1,100 @@
-# NeuroGuard
-Your intelligent assistant for predicting and managing epilepsy and seizures with personalized recommendations.
+# 🧠 NeuroGuard: Epilepsy & Health Chatbot
+
+## 🚀 Overview
+**NeuroGuard** is an AI-powered chatbot designed to provide insights on **epilepsy, seizures, and general health-related queries**. It integrates state-of-the-art **LLMs (LLaMA), PubMedBERT embeddings, FAISS**, and **Streamlit** for an interactive and intelligent healthcare assistant experience.
 
 ---
 
-## 📌 **Working of the Epilepsy & Seizure Prediction Chatbot**
-
-#### 1️⃣ **User Input**  
-- The chatbot receives a user query such as:  
-  > "I'm experiencing sudden muscle jerks and confusion. What could this mean?"
-
-#### 2️⃣ **Preprocessing & Understanding the Query**  
-- **Text Tokenization**: The user input is converted into tokens for processing.  
-- **Keyword Detection**: Key symptoms and terms (e.g., seizure, muscle jerks, confusion) are identified.  
-- **Query Classification**: The system determines if the query is **medical** or **general**.
-
-#### 3️⃣ **Retrieval from FAISS Database**  
-- The chatbot searches for similar past cases and **medical records** stored in the **FAISS database**.  
-- Historical seizure cases or previous responses are retrieved to match the user query.
-
-#### 4️⃣ **Choosing the Right Model for Response**  
-- **Medical Query**: If the query is medical-related, **PubMedBERT** is used for accurate and precise medical advice.  
-- **General Query**: If the query is a general conversation, models like **LLaMA 2** or **Mistral 7B** are used for a friendly and casual response.  
-- **Prediction**: For seizure prediction, insights from both **FAISS** and **PubMedBERT** are combined.
-
-#### 5️⃣ **Generating the Response**  
-- **PubMedBERT** analyzes medical aspects such as symptoms, risks, and historical data.  
-- **LLaMA 2 / Mistral** refines the response to ensure clarity, empathy, and a conversational tone.  
-- The chatbot merges the insights from both models to form an accurate and useful reply.
-
-#### 6️⃣ **Providing Recommendations & Predictions**  
-If the input matches seizure symptoms, the chatbot provides:
-- ✅ **Seizure Type Predictions** based on the symptoms.  
-- ✅ **Risk Assessment** using historical data and medical knowledge.  
-- ✅ **Medical Recommendations**: E.g., "Consult a neurologist", "Avoid known triggers".
-
-#### 7️⃣ **Final Output to User**  
-- The chatbot formats the final response in a **clear and user-friendly** manner.  
-- Follow-up questions may be asked if needed for better accuracy.
-
-#### 8️⃣ **Storing User Interaction (Optional)**  
-- New user data and interactions can be stored in the **FAISS** database for future reference.  
-- This helps the chatbot **improve over time** by learning from more case-based interactions.
+## 🔥 Features
+✔ **Epilepsy & Seizure Insights** - Provides structured responses to epilepsy-related queries.  
+✔ **Medical Text Processing** - Uses **PubMedBERT** for medical text analysis and embeddings.  
+✔ **AI-Powered Chat Responses** - Generates responses using **LLaMA-3.3-70B-Versatile** for accurate health guidance.  
+✔ **FAISS Indexing for Retrieval** - Stores medical embeddings for faster query retrieval.  
+✔ **Grammatical Correction** - Automatically improves user queries before processing.  
+✔ **Streamlit UI** - Interactive chat interface with chat history retention.  
+✔ **Health & Wellness Tips** - Offers advice on general health topics like headaches, nutrition, and stress management.  
+✔ **Dynamic Query Classification** - Distinguishes between epilepsy, healthcare, and general queries.  
 
 ---
 
-## 🚀 **Key Features**  
-- **Real-time Predictions**: Accurate seizure predictions based on symptoms.  
-- **Medical Recommendations**: Informed advice using PubMedBERT.  
-- **User Data Storage**: Improve model predictions with every interaction.  
-- **Multi-model Approach**: Combining the power of **PubMedBERT**, **LLaMA 2**, and **FAISS**.
+## 🛠️ Tech Stack
+🔹 **Python** - Core programming language  
+🔹 **Streamlit** - UI framework for chatbot interaction  
+🔹 **Transformers (Hugging Face)** - For LLM-based text processing  
+🔹 **FAISS** - Efficient similarity search for embeddings  
+🔹 **Groq API** - For LLaMA-powered responses  
+🔹 **PubMedBERT** - Specialized model for medical-related queries  
+🔹 **NumPy** - For numerical computations  
 
 ---
 
-## 🛠️ **Tech Stack**  
-- **Models**: PubMedBERT, LLaMA 2, Mistral 7B  
-- **Database**: FAISS  
-- **Programming**: Python
-- **Deployment**: Hugging Face, Google Colab
+## 🚀 Installation & Setup
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/yourusername/neuroguard-chatbot.git
+cd neuroguard-chatbot
+```
+
+### 2️⃣ Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 3️⃣ Set Up API Keys
+Add your **GROQ API Key** as an environment variable:
+```bash
+export GROQ_API_KEY="your_api_key_here"
+```
+
+### 4️⃣ Run the Application
+```bash
+streamlit run app.py
+```
 
 ---
 
-## 💡 **How to Use**  
-1. Clone this repository ``git clone https://github.com/Abdul-Haseeb-AI/NeuroGuard.git``
-2. Install required dependencies  
-3. Start the chatbot using **FastAPI**  
-4. Interact with the chatbot and receive medical recommendations
+## 📌 Usage
+1️⃣ Open the chatbot UI in your browser.  
+2️⃣ Ask any health-related or epilepsy-specific question.  
+3️⃣ Receive AI-generated insights, medical references, and recommendations.  
+4️⃣ View your chat history for context-aware responses.  
 
 ---
 
-## 💬 **Contribute**  
-We welcome contributions to enhance the chatbot's features and improve its accuracy. Feel free to fork the repository and submit your pull requests! 🚀
+## 🤖 How It Works
+1️⃣ **User Input:** You enter a health-related query.  
+2️⃣ **Grammar Correction:** LLaMA fixes grammar errors while maintaining intent.  
+3️⃣ **Query Classification:** AI determines if the query is about **epilepsy, general health, or other topics**.  
+4️⃣ **Response Generation:** 
+   - If epilepsy-related, **PubMedBERT** embeddings are generated and stored in **FAISS**.  
+   - If general health, basic **medical guidance** is provided.  
+   - If unrelated, the chatbot suggests alternative resources.  
+5️⃣ **Display Response:** The chatbot replies with structured insights.  
 
 ---
 
-📌 **If you find this project helpful, please ⭐ star the repo!** Let's improve seizure prediction together! 🚑🤖  
+## 📝 Future Enhancements
+✅ Expand medical coverage to more health conditions.  
+✅ Improve response accuracy with fine-tuned models.  
+✅ Integrate **speech-to-text** for voice-based interaction.  
+✅ Enhance UI for better user experience.  
+
+---
+
+## 👥 Contributors
+- **[Abdul Haseeb]** - Developer & AI Engineer  
+- **[Amina Asif]** - Developer & AI Engineer  
+- **Hugging Face** - Model Providers  
+- **Groq API** - LLM Support  
+
+---
+
+## 📜 License
+MIT License - Feel free to use, modify, and distribute!  
+
+---
+
+## ⭐ Support & Feedback
+🔗 For feature requests or issues, open an **[issue](https://github.com/Abdul-Haseeb-AI/NeuroGuard/issues)**.  
+💬 Connect with me on **[LinkedIn](https://www.linkedin.com/in/abdul-haseeb-980075323/)**.  
+🚀 If you like this project, consider giving it a **⭐ Star** on GitHub!
